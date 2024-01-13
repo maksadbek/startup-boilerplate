@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Items {{ anonymous_id }}</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{ form.title.label }}<br>
+            {{ form.title(size=32) }}
+        </div>
+
+        <div>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}
+        </div>
+
+
+        <div>
+            {{ form.price.label }}<br>
+            {{ form.price(size=32) }}
+        </div>
+
+        <div>{{ form.submit() }}</div>
+    </form>
+
+    {% for i in items %}
+        <div>
+            <div>
+                {{ i.title }}
+            </div>
+
+            <div>
+                {{ i.description }}
+            </div>
+
+            <div>
+                {{ i.price }}
+            </div>
+
+        </div>
+    {% endfor %}
+{% endblock %}
